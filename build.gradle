@@ -33,6 +33,8 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
     testImplementation 'org.slf4j:slf4j-simple:2.0.7'
     testImplementation 'org.aeonbits.owner:owner:1.0.4'
+    testImplementation 'commons-io:commons-io:2.20.0'
+
 }
 
 tasks.withType(Test) {
