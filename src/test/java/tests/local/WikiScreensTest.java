@@ -1,77 +1,40 @@
 package tests.local;
 
 import org.junit.jupiter.api.Test;
-import screens.ExploreScreen;
+import screens.*;
 
-import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 public class WikiScreensTest extends TestBase {
-    ExploreScreen exploreScreen = new ExploreScreen();
+    Onboard1LanguageScreen languageScreen = new Onboard1LanguageScreen();
+    Onboard2ExploreScreen exploreScreen = new Onboard2ExploreScreen();
+    Onboard3ReadingListsScreen readingListsScreen = new Onboard3ReadingListsScreen();
+    Onboard4DataPrivacyScreen dataPrivacyScreen = new Onboard4DataPrivacyScreen();
 
     @Test
-    void successfulSearchOnExploreScreenTest() {
-        back();
-        step("Type search", () -> {
-            exploreScreen.pressOnFakeInput()
-                    .sendKeysToRealInput("Appium");
+    void onboardingScreenTest() {
+        step("Language Screen Check", () -> {
+            languageScreen.checkHeader("The Free Encyclopedia\n…in over 300 languages")
+                    .checkLanguageAmount(1)
+                    .checkLanguageInList("English")
+                    .checkAddButtonExists("Add or edit languages")
+                    .checkSkipButtonExists()
+                    .pressContinueButton();
         });
-        step("Verify content found", () ->
-                exploreScreen.countResultsShouldBeGreaterThan(0));
-    }
 
-    @Test
-    void ExploreScreenTest() {
-        back();
-        step("", () -> {
-
+        step("Explore Screen Check", () -> {
+            exploreScreen.checkHeader("New ways to explore")
+                    .checkSkipButtonExists()
+                    .pressContinueButton();
         });
-        step("", () -> {
-
+        step("Reading Lists Screen Check", () -> {
+            readingListsScreen.checkHeader("Reading lists with sync")
+                    .checkSkipButtonExists()
+                    .pressContinueButton();
         });
-    }
-
-    @Test
-    void SavedScreenTest() {
-        back();
-        step("", () -> {
-
-        });
-        step("", () -> {
-
-        });
-    }
-
-    @Test
-    void SearchScreenTest() {
-        back();
-        step("", () -> {
-
-        });
-        step("", () -> {
-
-        });
-    }
-
-    @Test
-    void EditsScreenTest() {
-        back();
-        step("", () -> {
-
-        });
-        step("", () -> {
-
-        });
-    }
-
-    @Test
-    void MoreScreenTest() {
-        back();
-        step("", () -> {
-
-        });
-        step("", () -> {
-
+        step("Data & Privacy Check", () -> {
+            dataPrivacyScreen.checkHeader("Data & Privacy")
+                    .checkGetStartedButtonExists();
         });
     }
 }
