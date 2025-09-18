@@ -1,11 +1,11 @@
-package tests.local;
+package tests;
 
 import org.junit.jupiter.api.Test;
 import screens.*;
 
 import static io.qameta.allure.Allure.step;
 
-public class WikiScreensTest extends TestBase {
+public class WikiScreensTest extends TestBase{
     Onboard1LanguageScreen languageScreen = new Onboard1LanguageScreen();
     Onboard2ExploreScreen exploreScreen = new Onboard2ExploreScreen();
     Onboard3ReadingListsScreen readingListsScreen = new Onboard3ReadingListsScreen();

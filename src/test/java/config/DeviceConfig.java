@@ -4,7 +4,7 @@ import org.aeonbits.owner.Config;
 
 public interface DeviceConfig extends Config {
     @Key("device")
-    @DefaultValue("Samsung Galaxy S22 Ultra")
+    @DefaultValue("Google Pixel 5")
     String getDevice();
 
     @Key("app")
@@ -12,6 +12,6 @@ public interface DeviceConfig extends Config {
     String getApp();
 
     @Key("version")
-    @DefaultValue("12.0")
+    @DefaultValue("11.0")
     String getVersion();
 }
