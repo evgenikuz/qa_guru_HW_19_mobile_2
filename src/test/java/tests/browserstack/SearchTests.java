@@ -1,7 +1,6 @@
 package tests.browserstack;
 
 import org.junit.jupiter.api.Test;
-import tests.TestBase;
 
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
