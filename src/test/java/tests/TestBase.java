@@ -18,17 +18,18 @@ public class TestBase {
     private static final String DEVICE_HOST = System.getProperty("deviceHost", "emulator");
     @BeforeAll
     static void beforeAll() {
+        System.out.println(DEVICE_HOST);
         if (DEVICE_HOST.equals("browserstack")) {
             Configuration.browser = BrowserstackDriver.class.getName();
-        } else if (DEVICE_HOST.equals("emulator")) {
+        } else
+            if (DEVICE_HOST.equals("emulator")) {
             Configuration.browser = LocalDriver.class.getName();
         } else {
             throw new RuntimeException("No Driver was found for " + DEVICE_HOST);
         }
-        Configuration.browser = BrowserstackDriver.class.getName();
         Configuration.browserSize = null;
         Configuration.timeout = 30000;
-        System.setProperty("selenide.browser", "drivers.BrowserstackDriver");
+//        System.setProperty("selenide.browser", "drivers.BrowserstackDriver");
     }
 
     @BeforeEach
