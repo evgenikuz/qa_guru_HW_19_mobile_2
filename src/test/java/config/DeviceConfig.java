@@ -8,7 +8,7 @@ public interface DeviceConfig extends Config {
     String getDevice();
 
     @Key("app")
-    @DefaultValue("bs://sample.app")
+    @DefaultValue("bs://d89fc69d684960978f443721d5d835f433310bc6")
     String getApp();
 
     @Key("version")
