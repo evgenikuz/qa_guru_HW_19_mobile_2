@@ -18,9 +18,9 @@ public class TestBase {
     private static final String DEVICE_HOST = System.getProperty("deviceHost", "emulator");
     @BeforeAll
     static void beforeAll() {
+        System.out.println(DEVICE_HOST);
         if (DEVICE_HOST.equals("browserstack")) {
             Configuration.browser = BrowserstackDriver.class.getName();
-            Configuration.remote = "http://localhost:4723/wd/hub";
         } else
             if (DEVICE_HOST.equals("emulator")) {
             Configuration.browser = LocalDriver.class.getName();
